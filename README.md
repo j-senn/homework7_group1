@@ -1,1 +1,0 @@
-# homework7_group1
