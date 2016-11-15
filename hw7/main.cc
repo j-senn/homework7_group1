@@ -4,6 +4,8 @@
  * Author/copyright:  Duncan Buell. All rights reserved.
  * Date: 6 October 2016
  *
+ * TODO Update copyright notice appropriately
+ *
 **/
 #include "main.h"
 
@@ -12,11 +14,11 @@ static const string kTag = "MAIN: ";
 int main(int argc, char *argv[])
 {
   string config_filename;
-  string pct_filename = "XX";
-  string log_filename = "XX";
-  string out_filename = "XX";
-  string outstring = "XX";
-  string timecall_output = "XX";
+  string pct_filename = kDummyFilename;
+  string log_filename = kDummyFilename;
+  string out_filename = kDummyFilename;
+  string outstring = kDummyFilename;
+  string timecall_output = kDummyFilename;
 
   ofstream out_stream;
 
@@ -30,7 +32,8 @@ int main(int argc, char *argv[])
 
   cout<< kTag << "Beginning execution" << endl;
 
-  Utils::CheckArgs(4, argc, argv, "configfilename pctfilename outfilename logfilename");
+  Utils::CheckArgs(4, argc, argv, 
+                   "configfilename pctfilename outfilename logfilename");
   config_filename = static_cast<string>(argv[1]);
   pct_filename = static_cast<string>(argv[2]);
   out_filename = static_cast<string>(argv[3]);

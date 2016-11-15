@@ -19,4 +19,6 @@ using namespace std;
 #include "simulation.h"
 #include "myrandom.h"
 
+static const string kDummyFilename = "XX";
+
 #endif // MAIN_H

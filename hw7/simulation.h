@@ -37,6 +37,7 @@ public:
                      MyRandom& random, ofstream& out_stream);
   string ToString();
   string ToStringPcts();
+  static const string kDummyString = "XX";
 
 private:
 /****************************************************************
