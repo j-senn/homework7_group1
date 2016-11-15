@@ -83,7 +83,7 @@ void OnePct::CreateVoters(const Configuration& config, MyRandom& random,
   int arrival = 0;
   int sequence = 0;
   double percent = 0.0;
-  string outstring = kDummyString;
+  string outstring = "XX";
 
   voters_backup_.clear();
   sequence = 0;
@@ -212,7 +212,7 @@ void OnePct::ReadData(Scanner& infile) {
 **/
 void OnePct::RunSimulationPct(const Configuration& config,
                               MyRandom& random, ofstream& out_stream) {
-  string outstring = kDummyString;
+  string outstring = "XX";
 
   int min_station_count = pct_expected_voters_
                           * config.time_to_vote_mean_seconds_;

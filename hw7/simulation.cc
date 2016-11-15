@@ -41,7 +41,7 @@ void Simulation::ReadPrecincts(Scanner& infile) {
 **/
 void Simulation::RunSimulation(const Configuration& config,
                                MyRandom& random, ofstream& out_stream) {
-  string outstring = kDummyString;
+  string outstring = "XX";
   int pct_count_this_batch = 0;
   for (auto iterPct = pcts_.begin(); iterPct != pcts_.end(); ++iterPct) {
     OnePct pct = iterPct->second;

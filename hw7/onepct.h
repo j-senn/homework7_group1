@@ -54,8 +54,6 @@ public:
  string ToString();
  string ToStringVoterMap(string label, multimap<int, OneVoter> themap);
 
- static const string kDummyString = "XX";
-
 private:
  int    pct_expected_voters_ = kDummyInt;
  int    pct_expected_per_hour_ = kDummyInt;

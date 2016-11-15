@@ -103,7 +103,7 @@ string Configuration::ToString() {
     s += Utils::Format(offset+sub, 2) + "-" + Utils::Format(offset+sub+1, 2);
     s += " : " + Utils::Format(arrival_fractions_.at(sub), 7, 2) + "\n";
   }
-  s += "\n;
+  s += "\n";
   return s;
 }
 
