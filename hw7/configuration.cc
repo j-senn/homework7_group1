@@ -40,7 +40,7 @@ void Configuration::ReadConfiguration(Scanner& instream) {
 */
   string line;
   ScanLine scanline;
-  
+
   line = instream.NextLine();
   scanline.OpenString(line);
   seed_ = scanline.NextInt();
@@ -51,7 +51,7 @@ void Configuration::ReadConfiguration(Scanner& instream) {
   max_expected_to_simulate_ = scanline.NextInt();
   wait_time_minutes_that_is_too_long_ = scanline.NextInt();
   number_of_iterations_ = scanline.NextInt();
-  
+
   line = instream.NextLine();
   scanline.OpenString(line);
   arrival_zero_ = scanline.NextDouble();
@@ -59,7 +59,7 @@ void Configuration::ReadConfiguration(Scanner& instream) {
     double input = scanline.NextDouble();
     arrival_fractions_.push_back(input);
   }
-  
+
   Scanner service_times_file;
   service_times_file.OpenFile("dataallsorted.txt");
   while (service_times_file.HasNext()) {
@@ -70,8 +70,7 @@ void Configuration::ReadConfiguration(Scanner& instream) {
 
 /****************************************************************
 **/
-string Configuration::ToString()
-{
+string Configuration::ToString() {
   string s = "\n";
   s += kTag;
   s += "RN seed:              ";
@@ -103,7 +102,7 @@ string Configuration::ToString()
     s += kTag;
     s += Utils::Format(offset+sub, 2) + "-" + Utils::Format(offset+sub+1, 2);
     s += " : " + Utils::Format(arrival_fractions_.at(sub), 7, 2) + "\n";
-  }  
+  }
   s += "\n;
   return s;
 }

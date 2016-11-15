@@ -11,8 +11,7 @@
 
 static const string kTag = "MAIN: ";
 
-int main(int argc, char *argv[])
-{
+int main(int argc, char *argv[]) {
   string config_filename;
   string pct_filename = kDummyFilename;
   string log_filename = kDummyFilename;
@@ -32,7 +31,7 @@ int main(int argc, char *argv[])
 
   cout<< kTag << "Beginning execution" << endl;
 
-  Utils::CheckArgs(4, argc, argv, 
+  Utils::CheckArgs(4, argc, argv,
                    "configfilename pctfilename outfilename logfilename");
   config_filename = static_cast<string>(argv[1]);
   pct_filename = static_cast<string>(argv[2]);
