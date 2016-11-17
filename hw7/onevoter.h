@@ -1,4 +1,4 @@
-/******************************************************************************
+/*******************************************************************************
  * Header for the 'OneVoter' class
  *
  * Author/copyright:  Duncan Buell
@@ -17,30 +17,34 @@ static int kDummyVoterInt = -333;
 
 class OneVoter {
 public:
-/******************************************************************************
+ 
+/*******************************************************************************
  * Constructors and destructors for the class. 
 **/
- OneVoter();
- OneVoter(int sequence, int arrival_seconds, int duration_seconds);
- virtual ~OneVoter();
+ 
+ OneVoter ();
+ OneVoter (int sequence, int arrival_seconds, int duration_seconds);
+ virtual ~OneVoter ();
 
-/******************************************************************************
+/*******************************************************************************
  * Accessors and Mutators.
 **/
- int GetStationNumber() const;
- int GetTimeArrival() const;
- int GetTimeDoneVoting() const;
- int GetTimeWaiting() const;
+ 
+ int GetStationNumber () const;
+ int GetTimeArrival () const;
+ int GetTimeDoneVoting () const;
+ int GetTimeWaiting () const;
 
-/******************************************************************************
+/*******************************************************************************
  * General functions.
 **/
- void AssignStation(int station_number, int start_time_seconds);
- void DoneVoting();
- int GetTimeInQ() const;
+ 
+ void AssignStation (int station_number, int start_time_seconds);
+ void DoneVoting ();
+ int GetTimeInQ () const;
 
- string ToString();
- static string ToStringHeader();
+ string ToString ();
+ static string ToStringHeader ();
 
 private:
  int sequence_ = kDummyVoterInt;
@@ -51,11 +55,12 @@ private:
  int time_waiting_seconds_ = kDummyVoterInt;
  int which_station_ = kDummyVoterInt;
 
-/******************************************************************************
+/*******************************************************************************
  * General private functions.
 **/
- string ConvertTime(int time_in_seconds) const;
- string GetTOD(int time) const;
+ 
+ string ConvertTime (int time_in_seconds) const;
+ string GetTOD (int time) const;
 };
 
 #endif // ONEVOTER_H
