@@ -1,5 +1,5 @@
 #include "simulation.h"
-/****************************************************************
+/******************************************************************************
  * Implementation for the 'Simulation' class.
  *
  * Author/copyright:  Duncan Buell
@@ -10,23 +10,23 @@
 
 static const string kTag = "SIM: ";
 
-/****************************************************************
+/******************************************************************************
 * Constructor.
 **/
 Simulation::Simulation() {
 }
 
-/****************************************************************
+/******************************************************************************
 * Destructor.
 **/
 Simulation::~Simulation() {
 }
 
-/****************************************************************
+/******************************************************************************
 * Accessors and mutators.
 **/
 
-/****************************************************************
+/******************************************************************************
 * General functions.
 **/
 void Simulation::ReadPrecincts(Scanner& infile) {
@@ -37,7 +37,7 @@ void Simulation::ReadPrecincts(Scanner& infile) {
   } // while (infile.HasNext()) {
 } // void Simulation::ReadPrecincts(Scanner& infile) {
 
-/****************************************************************
+/******************************************************************************
 **/
 void Simulation::RunSimulation(const Configuration& config,
                                MyRandom& random, ofstream& out_stream) {
@@ -71,7 +71,7 @@ void Simulation::RunSimulation(const Configuration& config,
   //  Utils::log_stream.flush();
 } // void Simulation::RunSimulation()
 
-/****************************************************************
+/******************************************************************************
 * Usual 'ToString'.
 **/
 string Simulation::ToString() {
