@@ -1,4 +1,4 @@
-/******************************************************************************
+/*******************************************************************************
  * Header file for the random number generator.
  *
  * Author/copyright:  Duncan Buell
@@ -21,14 +21,14 @@ using namespace std;
 
 class MyRandom {
 public:
- MyRandom();
- MyRandom(unsigned seed);
- virtual ~MyRandom();
+ MyRandom ();
+ MyRandom (unsigned seed);
+ virtual ~MyRandom ();
 
- int RandomExponentialInt(double mean);
- double RandomNormal(double mean, double dev);
- double RandomUniformDouble(double lower, double upper);
- int RandomUniformInt(int lower, int upper);
+ int RandomExponentialInt (double mean);
+ double RandomNormal (double mean, double dev);
+ double RandomUniformDouble (double lower, double upper);
+ int RandomUniformInt (int lower, int upper);
 
 private:
  unsigned int seed_;
