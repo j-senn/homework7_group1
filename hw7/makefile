@@ -1,4 +1,4 @@
-GPP = g++ -O3 -Wall -std=c++11
+GPP = g++ -O3 -Wall -std=c++11 -g
 UTILS = ../Utilities
 SCANNER = ../Utilities
 SCANLINE = ../Utilities
@@ -45,5 +45,5 @@ utils.o: $(UTILS)/utils.h $(UTILS)/utils.cc
 
 clean:
 	rm Aprog
-	clean
+	rm *.o
 

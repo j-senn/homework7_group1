@@ -371,16 +371,16 @@ void OnePct::RunSimulationPct2(int stations_count) {
 /****************************************************************
 **/
 string OnePct::ToString() {
-  string s;
+  string s = "";
 
-  s = Utils::Format(pct_number_, 4)
-    + " " + Utils::Format(pct_name_, 25, "left")
-    + Utils::Format(pct_turnout_, 8, 2)
-    + Utils::Format(pct_num_voters_, 8)
-    + Utils::Format(pct_expected_voters_, 8)
-    + Utils::Format(pct_expected_per_hour_, 8)
-    + Utils::Format(pct_stations_, 3)
-    + Utils::Format(pct_minority_, 8, 2);
+  s += Utils::Format(pct_number_, 4);
+  s += " " + Utils::Format(pct_name_, 25, "left");
+  s += Utils::Format(pct_turnout_, 8, 2);
+  s += Utils::Format(pct_num_voters_, 8);
+  s += Utils::Format(pct_expected_voters_, 8);
+  s += Utils::Format(pct_expected_per_hour_, 8);
+  s += Utils::Format(pct_stations_, 3);
+  s += Utils::Format(pct_minority_, 8, 2);
 
   s += " HH ";
   for (auto iter = stations_to_histo_.begin();
