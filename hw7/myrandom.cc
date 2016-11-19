@@ -13,23 +13,23 @@
  * Constructor
 **/
 
-MyRandom::MyRando () {
+MyRandom::MyRandom(){
   seed_ = 1;
-  generator_.seed (seed_);
+  generator_.seed(seed_);
 }
 
 /*******************************************************************************
  * Constructor
 **/
-MyRandom::MyRandom (unsigned seed) {
+MyRandom::MyRandom(unsigned seed){
   seed_ = seed;
-  generator_.seed (seed_);
+  generator_.seed(seed_);
 }
 
 /*******************************************************************************
  * Destructor
 **/
-MyRandom::~MyRandom () {
+MyRandom::~MyRandom(){
 }
 
 /*******************************************************************************
@@ -54,10 +54,10 @@ MyRandom::~MyRandom () {
  *   the random number as an 'int' rounded from the 'double'
 **/
 
-int MyRandom::RandomExponentialInt (double lambda) {
-  assert (lambda >= 0.0);
-  std::exponential_distribution <double> distribution (lambda);
-  int r = round (distribution (generator_));
+int MyRandom::RandomExponentialInt(double lambda){
+  assert(lambda>=0.0);
+  std::exponential_distribution<double>distribution(lambda);
+  int r = round(distribution(generator_));
   return r;
 }
 
@@ -74,10 +74,10 @@ int MyRandom::RandomExponentialInt (double lambda) {
  *   the random number as a 'double'
 **/
 
-double MyRandom::RandomNormal (double mean, double dev) {
-  assert (dev >= 0.0);
-  std::normal_distribution <double> distribution (mean, dev);
-  double r = distribution (generator_);
+double MyRandom::RandomNormal(double mean, double dev){
+  assert(dev>=0.0);
+  std::normal_distribution<double>distribution(mean, dev);
+  double r = distribution(generator_);
   return r;
 }
 
@@ -94,10 +94,10 @@ double MyRandom::RandomNormal (double mean, double dev) {
  *   the random number as a 'double'
 **/
 
-double MyRandom::RandomUniformDouble (double lower, double upper) {
-  assert (lower <= upper);
-  std::uniform_real_distribution <double> distribution (lower, upper);
-  double r = distribution (generator_);
+double MyRandom::RandomUniformDouble(double lower, double upper){
+  assert(lower<=upper);
+  std::uniform_real_distribution<double>distribution(lower, upper);
+  double r = distribution(generator_);
   return r;
 }
 
@@ -114,9 +114,9 @@ double MyRandom::RandomUniformDouble (double lower, double upper) {
  *   the random number as an 'int'
 **/
 
-int MyRandom::RandomUniformInt (int lower, int upper) {
-  assert (lower <= upper);
-  std::uniform_int_distribution <int> distribution (lower, upper);
-  int r = distribution (generator_);
+int MyRandom::RandomUniformInt(int lower, int upper){
+  assert(lower<=upper);
+  std::uniform_int_distribution<int>distribution(lower, upper);
+  int r = distribution(generator_);
   return r;
 }
