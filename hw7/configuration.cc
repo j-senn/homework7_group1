@@ -50,7 +50,7 @@ void Configuration::ReadConfiguration(Scanner& instream){
   scanline.OpenString(line);
   arrival_zero_ = scanline.NextDouble();
   
-  for(int sub = 0; sub < election_day_length_hours_; ++sub) {
+  for(int sub = 0; sub < election_day_length_hours_; ++sub){
     double input = scanline.NextDouble();
     arrival_fractions_.push_back(input);
   }
@@ -58,7 +58,7 @@ void Configuration::ReadConfiguration(Scanner& instream){
   Scanner service_times_file;
   service_times_file.OpenFile("dataallsorted.txt");
   
-  while (service_times_file.HasNext()) {
+  while(service_times_file.HasNext()){
     int the_time = service_times_file.NextInt();
     actual_service_times_.push_back(the_time);
   }
@@ -66,7 +66,7 @@ void Configuration::ReadConfiguration(Scanner& instream){
 
 /*******************************************************************************
 **/
-string Configuration::ToString() {
+string Configuration::ToString(){
   string s = "\n" + kTag + "RN seed:\t";
   s.append(Utils::Format(seed_, 8) + "\n");
   s.append(kTag + "Election Day length:  ");
@@ -92,7 +92,7 @@ string Configuration::ToString() {
   s.append(kTag + Utils::Format(0, 2) + "-" + Utils::Format(0, 2));
   s.append(" : " + Utils::Format(arrival_zero_, 7, 2) + "\n");
   
-  for (UINT sub = 0; sub < arrival_fractions_.size(); ++sub) {
+  for(UINT sub = 0; sub < arrival_fractions_.size(); ++sub){
     s.append(kTag + Utils::Format(offset+sub, 2));
     s.append("-" + Utils::Format(offset+sub + 1, 2));
     s.append(" : " + Utils::Format(arrival_fractions_.at(sub), 7, 2) + "\n");
