@@ -26,18 +26,18 @@ public:
 /*******************************************************************************
  * Constructors and destructors for the class. 
 **/
-  Simulation ();
-  virtual ~Simulation ();
+  Simulation();
+  virtual ~Simulation();
 
 /*******************************************************************************
  * General functions.
 **/
   
-  void ReadPrecincts (Scanner& infile);
-  void RunSimulation (const Configuration& config, MyRandom& random,
-                      ofstream& out_stream);
-  string ToString ();
-  string ToStringPcts ();
+  void ReadPrecincts(Scanner& infile);
+  void RunSimulation(const Configuration& config, MyRandom& random,
+                     ofstream& out_stream);
+  string ToString();
+  string ToStringPcts();
 
 private:
   
@@ -45,7 +45,7 @@ private:
  * Variables.
 **/
   
-  map<int, OnePct> pcts_;
+  map<int, OnePct>pcts_;
 
 /*******************************************************************************
  * Private functions.
