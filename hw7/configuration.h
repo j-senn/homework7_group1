@@ -24,14 +24,14 @@ static const int kDefaultSeed = 19;
 static const int kDummyConfigInt = -111;
 static const double kDummyConfigDouble = -22.22;
 
-class Configuration {
+class Configuration{
 public:
 /*******************************************************************************
  * Constructors and destructors for the class. 
 **/
  
- Configuration ();
- virtual ~Configuration ();
+ Configuration();
+ virtual ~Configuration();
 
 /*******************************************************************************
  * Accessors and Mutators.
@@ -56,9 +56,9 @@ public:
  * General functions.
 **/
 
- int GetMaxServiceSubscript () const;
- void ReadConfiguration (Scanner& instream);
- string ToString ();
+ int GetMaxServiceSubscript() const;
+ void ReadConfiguration(Scanner& instream);
+ string ToString();
 
 private:
 
