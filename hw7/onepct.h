@@ -29,34 +29,34 @@ static const double kDummyDouble = -88.88;
 static const int kDummyInt = -999;
 static const string kDummyString = "dummystring";
 
-class OnePct {
+class OnePct{
 public:
  
 /*******************************************************************************
  * Constructors and destructors for the class. 
 **/
  
- OnePct ();
- OnePct (Scanner& infile);
- virtual ~OnePct ();
+ OnePct();
+ OnePct(Scanner& infile);
+ virtual ~OnePct();
 
 /*******************************************************************************
  * Accessors and Mutators.
 **/
  
- int GetExpectedVoters () const;
- int GetPctNumber () const;
+ int GetExpectedVoters() const;
+ int GetPctNumber() const;
 
 /******************************************************************************
  * General functions.
 **/
  
- void ReadData (Scanner& infile);
- void RunSimulationPct (const Configuration& config, MyRandom& random,
-                        ofstream& out_stream);
+ void ReadData(Scanner& infile);
+ void RunSimulationPct(const Configuration& config, MyRandom& random,
+                       ofstream& out_stream);
 
- string ToString ();
- string ToStringVoterMap (string label, multimap <int, OneVoter> themap);
+ string ToString();
+ string ToStringVoterMap(string label, multimap<int, OneVoter>themap);
 
 private:
  int    pct_expected_voters_ = kDummyInt;
@@ -82,12 +82,12 @@ private:
  
  void CreateVoters(const Configuration& config, MyRandom& random,
                    ofstream& out_stream);
- int DoStatistics (int iteration, const Configuration& config, 
-                   int station_count, map <int, int>& map_for_histo,
-       	           ofstream& out_stream);
+ int DoStatistics(int iteration, const Configuration& config, 
+                  int station_count, map <int, int>& map_for_histo,
+       	          ofstream& out_stream);
                    
- void ComputeMeanAndDev ();
- void RunSimulationPct2 (int stations);
+ void ComputeMeanAndDev();
+ void RunSimulationPct2(int stations);
 
 };
 
