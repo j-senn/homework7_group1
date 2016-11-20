@@ -56,7 +56,8 @@ bool Scanner::HasNext() {
 //        std::cout << TAG << "next line exists and is blank " << NextLine << std::endl;
 //        std::cout << TAG << "leave HasNext" << std::endl;
 //        return false;
-        if (local_stream_.eof()) return false;
+        if (local_stream_.eof())
+          return false;
       }
       else {
 //        std::cout << TAG << "next line exists and is not blank " << NextLine << std::endl;
@@ -104,6 +105,7 @@ bool Scanner::HasNext() {
  * Returns:
  *   the 'string' version of the next token.
 **/
+
 std::string Scanner::Next() {
 
   std::string return_value = scanline_.Next();
@@ -132,6 +134,7 @@ char Scanner::nextChar()
  * Returns:
  *   the next token in the file, parsed as a 'double'
 **/
+
 double Scanner::NextDouble() {
   double return_value;
 
@@ -150,6 +153,7 @@ double Scanner::NextDouble() {
  * Returns:
  *   the next token in the file, parsed as an 'int'
 **/
+
 int Scanner::NextInt() {
   int return_value;
   std::string next_token;
@@ -172,6 +176,7 @@ int Scanner::NextInt() {
  * Returns:
  *   the 'string' version of the rest of the line
 **/
+
 std::string Scanner::NextLine() {
   std::string return_value;
 
@@ -201,6 +206,7 @@ std::string Scanner::NextLine() {
  * Returns:
  *   the next token in the file, parsed as an 'LONG'
 **/
+
 LONG Scanner::NextLONG() {
   LONG return_value;
   std::string next_token;
@@ -216,6 +222,7 @@ LONG Scanner::NextLONG() {
 /****************************************************************
  * Function to open a file as a 'Scanner'.
 **/
+
 void Scanner::OpenFile(std::string filename) {
   Utils::FileOpen(local_stream_, filename);
 }
