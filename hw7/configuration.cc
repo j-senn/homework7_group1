@@ -24,12 +24,21 @@ Configuration::~Configuration(){
 /*******************************************************************************
  * Accessors and mutators.
 **/
+
+/*******************************************************************************
+ * GetMaxServiceSubscript() returns the size of the vector minus 1.
+**/
 int Configuration::GetMaxServiceSubscript() const{
   return static_cast<int>(actual_service_times_.size()) - 1;
 }
 
 /*******************************************************************************
  * General functions.
+**/
+
+/*******************************************************************************
+ * ReadConfiguration(Scanner& instream) takes in an instance of scanner and
+ * manipulates it.
 **/
 void Configuration::ReadConfiguration(Scanner& instream){
   string line;
@@ -65,6 +74,8 @@ void Configuration::ReadConfiguration(Scanner& instream){
 }
 
 /*******************************************************************************
+ * ToString () takes all the calculations done in ReadConfiguration () and 
+ * formats into a easily readable string to be output to the user.
 **/
 string Configuration::ToString(){
   string s = "\n" + kTag + "RN seed:\t";
@@ -86,9 +97,7 @@ string Configuration::ToString(){
   s.append(Utils::Format(number_of_iterations_, 4) + "\n");
   s.append("Max service time subscript: ");
   s.append(Utils::Format(GetMaxServiceSubscript(), 6) + "\n");
-/*******************************************************************************
- *int offset = 6;
-**/
+  //int offset = 6;             //unnecessary doe
   s.append(kTag + Utils::Format(0, 2) + "-" + Utils::Format(0, 2));
   s.append(" : " + Utils::Format(arrival_zero_, 7, 2) + "\n");
   
