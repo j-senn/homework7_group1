@@ -13,6 +13,10 @@
  * Constructor
 **/
 
+/*******************************************************************************
+ * MyRandom() and MyRandom(unsigned seed) sets the seed and sends it to the
+ * declared Mersenne Twister, which is a pseudorandom number generator.
+**/
 MyRandom::MyRandom(){
   seed_ = 1;
   generator_.seed(seed_);
