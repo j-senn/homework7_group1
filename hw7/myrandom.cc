@@ -8,6 +8,12 @@
  *
  * Author: Duncan A. Buell
  * Date last modified: 23 May 2016
+ *
+ * Used with permission by: Group 1 (BRYCE ANDREW BLANTON,
+ * WILLIAM R EDWARDS, JONATHAN SENN, SPENCER C SMITH,
+ * CELENA CHRISTINE WILLIAMS)
+ * Date last modified: 1 December 2016
+ *
 **/
 
 /******************************************************************************
