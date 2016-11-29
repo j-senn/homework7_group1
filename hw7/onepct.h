@@ -5,6 +5,11 @@
  * TODO update copyright
  * Date: 6 October 2016
  *
+ * Used with permission by: Group 1 (BRYCE ANDREW BLANTON,
+ * WILLIAM R EDWARDS, JONATHAN SENN, SPENCER C SMITH,
+ * CELENA CHRISTINE WILLIAMS)
+ * Date last modified: 1 December 2016
+ *
 **/
 
 #ifndef ONEPCT_H
