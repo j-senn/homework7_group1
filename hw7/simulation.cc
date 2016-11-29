@@ -6,6 +6,11 @@
  * TODO Update copyright
  * Date: 19 July 2016
  *
+ * Used with permission by: Group 1 (BRYCE ANDREW BLANTON,
+ * WILLIAM R EDWARDS, JONATHAN SENN, SPENCER C SMITH,
+ * CELENA CHRISTINE WILLIAMS)
+ * Date last modified: 1 December 2016
+ *
 **/
 
 static const string kTag = "SIM: ";
