@@ -7,6 +7,16 @@
  * Date: 6 October 2016
 **/
 
+/*******************************************************************************
+ * GetMaxServiceSubscript() returns the size of the vector minus 1.
+ *
+ * ReadConfiguration(Scanner& instream) takes in an instance of scanner and
+ * manipulates it.
+ *
+ * ToString () takes all the calculations done in ReadConfiguration () and 
+ * formats into a easily readable string to be output to the user.
+**/
+
 static const string kTag = "CONFIG: ";
 
 /*******************************************************************************
@@ -25,9 +35,6 @@ Configuration::~Configuration(){
  * Accessors and mutators.
 **/
 
-/*******************************************************************************
- * GetMaxServiceSubscript() returns the size of the vector minus 1.
-**/
 int Configuration::GetMaxServiceSubscript() const{
   return static_cast<int>(actual_service_times_.size()) - 1;
 }
@@ -36,10 +43,6 @@ int Configuration::GetMaxServiceSubscript() const{
  * General functions.
 **/
 
-/*******************************************************************************
- * ReadConfiguration(Scanner& instream) takes in an instance of scanner and
- * manipulates it.
-**/
 void Configuration::ReadConfiguration(Scanner& instream){
   string line;
   ScanLine scanline;
@@ -73,10 +76,6 @@ void Configuration::ReadConfiguration(Scanner& instream){
   }
 }
 
-/*******************************************************************************
- * ToString () takes all the calculations done in ReadConfiguration () and 
- * formats into a easily readable string to be output to the user.
-**/
 string Configuration::ToString(){
   string s = "\n" + kTag + "RN seed:\t";
   s.append(Utils::Format(seed_, 8) + "\n");
