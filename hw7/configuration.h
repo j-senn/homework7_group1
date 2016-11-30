@@ -6,6 +6,18 @@
  *
 **/
 
+/*******************************************************************************
+ * GetMaxServiceSubscript() returns the size of the vector minus 1.
+ *
+ * ReadConfiguration(Scanner& instream) takes in an instance of scanner and
+ * manipulates it.
+ *
+ * ToString () takes all the calculations done in ReadConfiguration () and 
+ * formats into a easily readable string to be output to the user.
+ *
+ * All variables in this file are global.
+**/
+
 #ifndef CONFIGURATION_H
 #define CONFIGURATION_H
 
@@ -20,9 +32,9 @@
 
 using namespace std;
 
-static const int kDefaultSeed = 19;
-static const int kDummyConfigInt = -111;
-static const double kDummyConfigDouble = -22.22;
+//static const int kDefaultSeed = 19;
+//static const int kDummyConfigInt = -111;
+//static const double kDummyConfigDouble = -22.22;
 
 class Configuration{
 public:
@@ -40,16 +52,16 @@ public:
  * public variables
 **/
  
- int seed_ = kDefaultSeed;
- int election_day_length_hours_ = kDummyConfigInt;
- int election_day_length_seconds_ = kDummyConfigInt;
- int time_to_vote_mean_seconds_ = kDummyConfigInt;
- int max_expected_to_simulate_ = kDummyConfigInt;
- int min_expected_to_simulate_ = kDummyConfigInt;
- int wait_time_minutes_that_is_too_long_ = kDummyConfigInt;
- int number_of_iterations_ = kDummyConfigInt;
+ int seed_;// = kDefaultSeed;
+ int election_day_length_hours_;// = kDummyConfigInt;
+ int election_day_length_seconds_;// = kDummyConfigInt;
+ int time_to_vote_mean_seconds_;// = kDummyConfigInt;
+ int max_expected_to_simulate_;// = kDummyConfigInt;
+ int min_expected_to_simulate_;// = kDummyConfigInt;
+ int wait_time_minutes_that_is_too_long_;// = kDummyConfigInt;
+ int number_of_iterations_;// = kDummyConfigInt;
  vector <int> actual_service_times_;
- double arrival_zero_ = kDummyConfigDouble;
+ double arrival_zero_;// = kDummyConfigDouble;
  vector <double> arrival_fractions_;
 
 /*******************************************************************************
@@ -64,4 +76,4 @@ private:
 
 };
 
-#endif // ONEVOTER_H
+#endif // CONFIGURATION_H
