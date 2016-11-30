@@ -3,8 +3,8 @@
  * Implementation for the 'Simulation' class.
  *
  * This class sets up and manages the precinct simulations.  Most of the heavy
- * for the simulation is located in the OnePct class.  The Simulation class
- * serves mainly to coordinate the simulations of different precincts.
+ * lifting for the simulation is located in the OnePct class.  The Simulation
+ * class serves mainly to coordinate the simulations of different precincts.
  *
  * Author/copyright:  Duncan Buell
  * TODO Update copyright
@@ -65,7 +65,7 @@ void Simulation::ReadPrecincts(Scanner& infile) {
  *
  * Arguments:
  *   Configuration& config - An instance of the 'Configuration' class which
- *     contains certain parametrs for the simulation
+ *     contains certain parameters for the simulation
  *   MyRandom& random - An instance of a random number generator.
  *   ofstream& out_stream - A data stream corresponding to the output file.
 **/
@@ -104,7 +104,7 @@ void Simulation::RunSimulation(const Configuration& config,
 /*******************************************************************************
 * Function 'ToString'.
 *
-* Coverts the data of the 'Simulation' instance into a string representation.
+* Converts the data of the 'Simulation' instance into a string representation.
 * This is accomplished by calling the 'ToString' method for each 'OnePct'
 * instance in pcts_.
 **/
