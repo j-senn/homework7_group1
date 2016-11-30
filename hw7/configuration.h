@@ -16,7 +16,7 @@
 #include "../Utilities/scanner.h"
 #include "../Utilities/scanline.h"
 
-#include "myrandom.h"
+// #include "myrandom.h" // Unusued include
 
 using namespace std;
 
