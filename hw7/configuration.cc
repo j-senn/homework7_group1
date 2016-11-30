@@ -97,7 +97,7 @@ string Configuration::ToString(){
   s.append(Utils::Format(number_of_iterations_, 4) + "\n");
   s.append("Max service time subscript: ");
   s.append(Utils::Format(GetMaxServiceSubscript(), 6) + "\n");
-  //int offset = 6;             //unnecessary doe
+  //int offset = 6;             //unnecessary code
   s.append(kTag + Utils::Format(0, 2) + "-" + Utils::Format(0, 2));
   s.append(" : " + Utils::Format(arrival_zero_, 7, 2) + "\n");
   
