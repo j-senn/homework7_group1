@@ -1,6 +1,7 @@
 #include "simulation.h"
 /*******************************************************************************
  * Implementation for the 'Simulation' class.
+ * Commented by William Edwards, 11/30/16
  *
  * This class sets up and manages the precinct simulations.  Most of the heavy
  * lifting for the simulation is located in the OnePct class.  The Simulation
@@ -36,6 +37,7 @@ Simulation::~Simulation() {
 
 /*******************************************************************************
  * Function 'ReadPrecincts'
+ * Commented by William Edwards, 11/30/16
  *
  * Reads the data needed to initialize each precinct simulation.  This is
  * accomplished by creating an instance of 'OnePct' for each precinct in the file
@@ -55,6 +57,7 @@ void Simulation::ReadPrecincts(Scanner& infile) {
 
 /*******************************************************************************
  * Function 'RunSimulation'
+ * Commented by William Edwards, 11/30/16
  *
  * This function sets up and runs the simulation for each precinct.  For each
  * precinct, the function checks whether the number of expected voters is within
@@ -102,11 +105,12 @@ void Simulation::RunSimulation(const Configuration& config,
 } // void Simulation::RunSimulation()
 
 /*******************************************************************************
-* Function 'ToString'.
-*
-* Converts the data of the 'Simulation' instance into a string representation.
-* This is accomplished by calling the 'ToString' method for each 'OnePct'
-* instance in pcts_.
+ * Function 'ToString'.
+ * Commented by William Edwards, 11/30/16
+ *
+ * Converts the data of the 'Simulation' instance into a string representation.
+ * This is accomplished by calling the 'ToString' method for each 'OnePct'
+ * instance in pcts_.
 **/
 string Simulation::ToString() {
   string s;
