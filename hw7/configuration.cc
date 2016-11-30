@@ -77,6 +77,8 @@ void Configuration::ReadConfiguration(Scanner& instream){
 }
 
 string Configuration::ToString(){
+  int offset;
+  
   string s = "\n" + kTag + "RN seed:\t";
   s.append(Utils::Format(seed_, 8) + "\n");
   s.append(kTag + "Election Day length:  ");
@@ -90,13 +92,12 @@ string Configuration::ToString(){
   s.append("Min and max expected voters for this simulation: ");
   s.append(Utils::Format(min_expected_to_simulate_, 8));
   s.append(Utils::Format(max_expected_to_simulate_, 8) + "\n");
-  s.append("Wait time (minutes) that is 'too long': ";
+  s.append("Wait time (minutes) that is 'too long': ");
   s.append(Utils::Format(wait_time_minutes_that_is_too_long_, 8) + "\n");
   s.append("Number of iterations to perform: ");
   s.append(Utils::Format(number_of_iterations_, 4) + "\n");
   s.append("Max service time subscript: ");
   s.append(Utils::Format(GetMaxServiceSubscript(), 6) + "\n");
-  //int offset = 6;             //unnecessary code
   s.append(kTag + Utils::Format(0, 2) + "-" + Utils::Format(0, 2));
   s.append(" : " + Utils::Format(arrival_zero_, 7, 2) + "\n");
   
