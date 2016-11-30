@@ -83,7 +83,7 @@ void OnePct::ComputeMeanAndDev() {
     double this_addin = static_cast<double>(voter.GetTimeWaiting())
                         - wait_mean_seconds_;
 
-    sum_of_adjusted_times_seconds.append((this_addin) * (this_addin));
+    sum_of_adjusted_times_seconds += (this_addin) * (this_addin);
   }
 
   // Set wait standard deviation
