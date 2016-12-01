@@ -295,9 +295,9 @@ void OnePct::ReadData(Scanner& infile) {
  *
  * RunSimulationPct is what cranks out the sim to get all of the data. It runs
  * the sim wth differnt numbers of stations each time (that is the outer
- * for loop). The inner loop runs as many times as is specified by
- * config.number_of_iterations_ or until a perfect scenario is found, no voters
- * wait longer than is specified in config.wait_time_minutes_that_is_too_long_.
+ * for loop) or until a perfect scenario is found, no voters wait longer than is
+ * specified in config.wait_time_minutes_that_is_too_long_. The inner loop runs
+ * as many times as is specified by config.number_of_iterations_.
  *
  * Wait times are calculated for each number of stations by RunSimulationPct2.
  *
@@ -326,7 +326,8 @@ void OnePct::RunSimulationPct(const Configuration& config,
 
   bool done_with_this_count = false;
 
-  // For each possible station count determine if perfect case exists and
+  // For each possible station count until perfect case or max_station_count_
+  // generate n simulations
   for (int stations_count = min_station_count;
        stations_count <= max_station_count; ++stations_count) {
 
@@ -339,8 +340,8 @@ void OnePct::RunSimulationPct(const Configuration& config,
     outstring = kTag + this->ToString() + "\n";
     Utils::Output(outstring, out_stream, Utils::log_stream);
 
-  // For n times, run the simulation and check for a perfect outcome:
-  // no one waits longer than specified. Otherwise use the last simulation
+    // For n times, run the simulation and check for a perfect outcome:
+    // no one waits longer than specified. Print the results of simulation
     for (int iteration = 0; iteration < config.number_of_iterations_;
          ++iteration) {
       this->CreateVoters(config, random, out_stream);
