@@ -330,7 +330,7 @@ void OnePct::RunSimulationPct(const Configuration& config,
   bool done_with_this_count = false;
 
   // Run simulation for each possible station count until perfect case or
-  // max_station_count_ generate n simulations
+  // max_station_count_
   for (int stations_count = min_station_count;
        stations_count <= max_station_count; ++stations_count) {
 
