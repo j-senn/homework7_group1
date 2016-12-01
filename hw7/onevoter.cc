@@ -126,7 +126,7 @@ string OneVoter::GetTOD(int time_in_seconds) const {
 //  int offset_hours = 6;
   int offset_hours = 0;
   //  string s = "";              //Dead code
-  return this->ConvertTime(time_in_seconds+offset_hours*3600);
+  return this->ConvertTime(time_in_seconds + offset_hours * 3600);
 }
 
 /******************************************************************************
@@ -152,26 +152,26 @@ string OneVoter::ConvertTime(int time_in_seconds) const {
 
   s.append(Utils::Format(time_in_seconds, 6));
 
-  if(hours<0)
+  if (hours<0)
     s.append(" 00");
   else
-    if(hours<10)
+    if (hours<10)
       s.append(" 0" + Utils::Format(hours, 1));
     else
       s.append(" " + Utils::Format(hours, 2));
 
-  if(minutes<0)
+  if (minutes<0)
     s.append(":00");
   else
-    if(minutes<10)
+    if (minutes<10)
       s.append(":0" + Utils::Format(minutes, 1));
     else
       s.append(":" + Utils::Format(minutes, 2));
 
-  if(seconds<0)
+  i f(seconds<0)
     s.append(":00");
   else
-    if(seconds<10)
+    if (seconds<10)
       s.append(":0" + Utils::Format(seconds, 1));
     else
       s.append(":" + Utils::Format(seconds, 2));

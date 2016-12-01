@@ -23,7 +23,7 @@
  * MyRandom() and MyRandom(unsigned seed) sets the seed and sends it to the
  * declared Mersenne Twister, which is a pseudorandom number generator.
 **/
-MyRandom::MyRandom(){
+MyRandom::MyRandom() {
   seed_ = 1;
   generator_.seed(seed_);
 }
@@ -31,7 +31,7 @@ MyRandom::MyRandom(){
 /*******************************************************************************
  * Constructor
 **/
-MyRandom::MyRandom(unsigned seed){
+MyRandom::MyRandom(unsigned seed) {
   seed_ = seed;
   generator_.seed(seed_);
 }
@@ -39,7 +39,7 @@ MyRandom::MyRandom(unsigned seed){
 /*******************************************************************************
  * Destructor
 **/
-MyRandom::~MyRandom(){
+MyRandom::~MyRandom() {
 }
 
 /*******************************************************************************
@@ -64,9 +64,9 @@ MyRandom::~MyRandom(){
  *   the random number as an 'int' rounded from the 'double'
 **/
 
-int MyRandom::RandomExponentialInt(double lambda){
-  assert(lambda>=0.0);
-  std::exponential_distribution<double>distribution(lambda);
+int MyRandom::RandomExponentialInt(double lambda) {
+  assert(lambda >= 0.0);
+  std::exponential_distribution<double> distribution(lambda);
   int r = round(distribution(generator_));
   return r;
 }

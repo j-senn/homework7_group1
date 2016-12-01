@@ -67,7 +67,7 @@ public:
                        ofstream& out_stream);
 
  string ToString();
- string ToStringVoterMap(string label, multimap<int, OneVoter>themap);
+ string ToStringVoterMap(string label, multimap<int, OneVoter> themap);
 
 private:
  int    pct_expected_voters_ = kDummyInt;
@@ -80,12 +80,12 @@ private:
  int    pct_num_voters_ = kDummyInt;
  double wait_dev_seconds_;
  double wait_mean_seconds_;
- set <int> stations_to_histo_;
- vector <int> free_stations_;
- multimap <int, OneVoter> voters_backup_;
- multimap <int, OneVoter> voters_done_voting_;
- multimap <int, OneVoter> voters_pending_;
- multimap <int, OneVoter> voters_voting_;
+ set<int> stations_to_histo_;
+ vector<int> free_stations_;
+ multimap<int, OneVoter> voters_backup_;
+ multimap<int, OneVoter> voters_done_voting_;
+ multimap<int, OneVoter> voters_pending_;
+ multimap<int, OneVoter> voters_voting_;
 
 /*******************************************************************************
  * General private functions.

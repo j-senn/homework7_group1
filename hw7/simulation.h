@@ -25,8 +25,7 @@ using namespace std;
 #include "configuration.h"
 #include "onepct.h"
 
-class Simulation
-{
+class Simulation {
 public:
 /*******************************************************************************
  * Constructors and destructors for the class. 

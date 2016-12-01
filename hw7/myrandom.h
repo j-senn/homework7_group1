@@ -24,7 +24,7 @@ using namespace std;
 
 #undef NDEBUG
 
-class MyRandom{
+class MyRandom {
 public:
  MyRandom();
  MyRandom(unsigned seed);

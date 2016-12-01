@@ -41,7 +41,7 @@ static const int kDefaultSeed = 19;
 static const int kDummyConfigInt = -111;
 static const double kDummyConfigDouble = -22.22;
 
-class Configuration{
+class Configuration {
 public:
 /*******************************************************************************
  * Constructors and destructors for the class. 
@@ -65,9 +65,9 @@ public:
  int min_expected_to_simulate_ = kDummyConfigInt;
  int wait_time_minutes_that_is_too_long_ = kDummyConfigInt;
  int number_of_iterations_ = kDummyConfigInt;
- vector <int> actual_service_times_;
+ vector<int> actual_service_times_;
  double arrival_zero_ = kDummyConfigDouble;
- vector <double> arrival_fractions_;
+ vector<double> arrival_fractions_;
 
 /*******************************************************************************
  * General functions.

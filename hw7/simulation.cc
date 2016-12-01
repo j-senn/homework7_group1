@@ -22,13 +22,13 @@ static const string kTag = "SIM: ";
 /*******************************************************************************
 * Constructor.
 **/
-Simulation::Simulation(){
+Simulation::Simulation() {
 }
 
 /*******************************************************************************
 * Destructor.
 **/
-Simulation::~Simulation(){
+Simulation::~Simulation() {
 }
 
 /*******************************************************************************
@@ -77,11 +77,11 @@ void Simulation::ReadPrecincts(Scanner& infile) {
  *   ofstream& out_stream - A data stream corresponding to the output file.
 **/
 void Simulation::RunSimulation(const Configuration& config,
-                               MyRandom& random, ofstream& out_stream){
+                               MyRandom& random, ofstream& out_stream) {
   string outstring = "XX";
   int pct_count_this_batch = 0;
   
-  for(auto iterPct = pcts_.begin(); iterPct!=pcts_.end(); ++iterPct){
+  for(auto iterPct = pcts_.begin(); iterPct!=pcts_.end(); ++iterPct) {
     OnePct pct = iterPct->second;
 
     int expected_voters = pct.GetExpectedVoters();
@@ -125,7 +125,7 @@ void Simulation::RunSimulation(const Configuration& config,
 string Simulation::ToString(){
   string s;
 
-  for(auto iterPct = pcts_.begin(); iterPct!=pcts_.end(); ++iterPct){
+  for (auto iterPct = pcts_.begin(); iterPct!=pcts_.end(); ++iterPct) {
     s.append(kTag + (iterPct->second).ToString() + "\n");
   }
 

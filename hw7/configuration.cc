@@ -27,20 +27,20 @@ static const string kTag = "CONFIG: ";
 /*******************************************************************************
  * Constructor.
 **/
-Configuration::Configuration(){
+Configuration::Configuration() {
 }
 
 /*******************************************************************************
  * Destructor.
 **/
-Configuration::~Configuration(){
+Configuration::~Configuration() {
 }
 
 /*******************************************************************************
  * Accessors and mutators.
 **/
 
-int Configuration::GetMaxServiceSubscript() const{
+int Configuration::GetMaxServiceSubscript() const {
   return static_cast<int>(actual_service_times_.size()) - 1;
 }
 
@@ -48,7 +48,7 @@ int Configuration::GetMaxServiceSubscript() const{
  * General functions.
 **/
 
-void Configuration::ReadConfiguration(Scanner& instream){
+void Configuration::ReadConfiguration (Scanner& instream) {
   string line;
   ScanLine scanline;
 
@@ -56,7 +56,7 @@ void Configuration::ReadConfiguration(Scanner& instream){
   scanline.OpenString(line);
   seed_ = scanline.NextInt();
   election_day_length_hours_ = scanline.NextInt();
-  election_day_length_seconds_ = election_day_length_hours_*3600;
+  election_day_length_seconds_ = election_day_length_hours_ * 3600;
   time_to_vote_mean_seconds_ = scanline.NextInt();
   min_expected_to_simulate_ = scanline.NextInt();
   max_expected_to_simulate_ = scanline.NextInt();
@@ -67,7 +67,7 @@ void Configuration::ReadConfiguration(Scanner& instream){
   scanline.OpenString(line);
   arrival_zero_ = scanline.NextDouble();
   
-  for(int sub = 0; sub < election_day_length_hours_; ++sub){
+  for (int sub = 0; sub < election_day_length_hours_; ++sub) {
     double input = scanline.NextDouble();
     arrival_fractions_.push_back(input);
   }
@@ -75,13 +75,13 @@ void Configuration::ReadConfiguration(Scanner& instream){
   Scanner service_times_file;
   service_times_file.OpenFile("dataallsorted.txt");
   
-  while(service_times_file.HasNext()){
+  while (service_times_file.HasNext()) {
     int the_time = service_times_file.NextInt();
     actual_service_times_.push_back(the_time);
   }
 }
 
-string Configuration::ToString(){
+string Configuration::ToString() {
   const int kOffset = 6;
   
   string s = "\n" + kTag + "RN seed:              ";
@@ -92,7 +92,7 @@ string Configuration::ToString(){
   s.append(Utils::Format(election_day_length_hours_, 8, 2) + ") hours\n");
   s.append(kTag + "Time to vote mean:    ");
   s.append(Utils::Format(time_to_vote_mean_seconds_, 8) + " =");
-  s.append(Utils::Format(time_to_vote_mean_seconds_/60.0, 8, 2));
+  s.append(Utils::Format(time_to_vote_mean_seconds_ / 60.0, 8, 2));
   s.append(" minutes\n" + kTag);
   s.append("Min and max expected voters for this simulation:     ");
   s.append(Utils::Format(min_expected_to_simulate_, 8));
@@ -106,7 +106,7 @@ string Configuration::ToString(){
   s.append(kTag + Utils::Format(0, 2) + "-" + Utils::Format(0, 2));
   s.append(" : " + Utils::Format(arrival_zero_, 7, 2) + "\n");
   
-  for(UINT sub = 0; sub < arrival_fractions_.size(); ++sub){
+  for (UINT sub = 0; sub < arrival_fractions_.size(); ++sub) {
     s.append(kTag + Utils::Format(kOffset + sub, 2));
     s.append("-" + Utils::Format(kOffset + sub + 1, 2));
     s.append(" : " + Utils::Format(arrival_fractions_.at(sub), 7, 2) + "\n");
