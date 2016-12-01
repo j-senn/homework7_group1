@@ -81,6 +81,7 @@ void Simulation::RunSimulation(const Configuration& config,
   string outstring = "XX";
   int pct_count_this_batch = 0;
   
+  // Loop over each precinct
   for (auto iterPct = pcts_.begin(); iterPct != pcts_.end(); ++iterPct) {
     OnePct pct = iterPct->second;
 
@@ -94,6 +95,7 @@ void Simulation::RunSimulation(const Configuration& config,
     Utils::Output(outstring, out_stream, Utils::log_stream);
 
     ++pct_count_this_batch;
+    // Run simulation for precinct.
     pct.RunSimulationPct(config, random, out_stream);
 
     //    break; // we only run one pct right now
