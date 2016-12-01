@@ -8,6 +8,10 @@
  * WILLIAM R EDWARDS, JONATHAN SENN, SPENCER C SMITH,
  * CELENA CHRISTINE WILLIAMS)
  * Date last modified: 1 December 2016
+ * 
+ * This class is used for the creation of an individual voter so that the
+ * respective times for a voter can be outtputted to check for anomlies in 
+ * data.
  *
 **/
 
