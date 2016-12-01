@@ -3,11 +3,13 @@
 using namespace std;
 
 // static const string TAG = "ScanLine: ";
+
 // ifstream Utils::inStream; // deprecated
 // ofstream Utils::outStream; // deprecated
 //ofstream ScanLine::zorklogStream;
 //ostringstream ScanLine::zorkoss;
 //stringstream ScanLine::zorkss;
+
 //stringstream ScanLine::myss;
 
 /****************************************************************
@@ -30,15 +32,15 @@ ScanLine::~ScanLine() {
  * Returns:
  *   true if there are ANY more characters in the input 'string'
 **/
-
-bool ScanLine::HasMoreData(){
+bool ScanLine::HasMoreData() {
   bool return_value = true;
 #ifdef EBUGS
   Utils::logStream << TAG << "enter HasMoreData" << std::endl;
   Utils::logStream.flush();
 #endif
   
-  if(scanline_ss_.eof()){
+  if(scanline_ss_.eof())
+  {
     return_value = false;
   }
 
@@ -56,15 +58,15 @@ bool ScanLine::HasMoreData(){
  * Returns:
  *   true if there are ANY more characters in the input 'string'
 **/
-
-bool ScanLine::HasNext(){
+bool ScanLine::HasNext() {
   bool return_value = true;
 #ifdef EBUGS
   Utils::logStream << TAG << "enter HasNext" << std::endl;
   Utils::logStream.flush();
 #endif
   
-  if(scanline_ss_.eof()){
+  if(scanline_ss_.eof())
+  {
     return_value = false;
   }
 
@@ -79,8 +81,7 @@ bool ScanLine::HasNext(){
 /****************************************************************
  * Initialization. This because I can't make constructors work.
 **/
-
-void ScanLine::OpenString(std::string line){
+void ScanLine::OpenString(std::string line) {
   std::string token;
 
 #ifdef EBUGS
@@ -107,8 +108,7 @@ void ScanLine::OpenString(std::string line){
  * Returns:
  *   the 'string' versin of the next token
 **/
-
-string ScanLine::Next(){
+string ScanLine::Next() {
   std::string token;
 
 #ifdef EBUGS
@@ -117,7 +117,8 @@ string ScanLine::Next(){
 #endif
   
   token = "";
-  if(!scanline_ss_.eof()){
+  if(!scanline_ss_.eof())
+  {
     scanline_ss_ >> token;
   }
 
@@ -138,8 +139,7 @@ string ScanLine::Next(){
  * Returns:
  *   the next token in the file, parsed as an 'int'
 **/
-
-double ScanLine::NextDouble(){
+double ScanLine::NextDouble() {
   double local_double = 0.0;
 
 #ifdef EBUGS
@@ -147,7 +147,8 @@ double ScanLine::NextDouble(){
   Utils::logStream.flush();
 #endif
   
-  if(!scanline_ss_.eof()){
+  if(!scanline_ss_.eof())
+  {
     scanline_ss_ >> local_double;
   }
 
@@ -168,8 +169,7 @@ double ScanLine::NextDouble(){
  * Returns:
  *   the next token in the file, parsed as an 'int'
 **/
-
-int ScanLine::NextInt(){
+int ScanLine::NextInt() {
   int next_value = 0;
   std::string token = "";
 
@@ -178,7 +178,8 @@ int ScanLine::NextInt(){
   Utils::logStream.flush();
 #endif
   
-  if(!scanline_ss_.eof()){
+  if(!scanline_ss_.eof())
+  {
     scanline_ss_ >> token;
     next_value = Utils::StringToInteger(token); 
   }
@@ -204,8 +205,7 @@ int ScanLine::NextInt(){
  * Returns:
  *   the 'string' version of the rest of the line
 **/
-
-string ScanLine::NextLine(){
+string ScanLine::NextLine() {
   char xx[1025];
   std::string token;
 
@@ -214,10 +214,12 @@ string ScanLine::NextLine(){
   Utils::logStream.flush();
 #endif
   
-  if (scanline_ss_.eof()){
+  if (scanline_ss_.eof())
+  {
     token = "";
   }
-  else{
+  else
+  {
     scanline_ss_.getline(xx,1024);
     token = string(xx);
   }
@@ -239,8 +241,7 @@ string ScanLine::NextLine(){
  * Returns:
  *   the next token in the file, parsed as an 'LONG'
 **/
-
-LONG ScanLine::NextLONG(){
+LONG ScanLine::NextLONG() {
   LONG next_value = 0;
   std::string token = "";
 
@@ -249,7 +250,8 @@ LONG ScanLine::NextLONG(){
   Utils::logStream.flush();
 #endif
   
-  if(!scanline_ss_.eof()){
+  if(!scanline_ss_.eof())
+  {
     scanline_ss_ >> token;
     next_value = Utils::StringToLONG(token); 
   }
@@ -261,9 +263,6 @@ LONG ScanLine::NextLONG(){
 
   return next_value;
 } 
-
-
-//Code below is unnecessary for this program.
 
 /****************************************************************
  * Test function to read.
@@ -292,3 +291,4 @@ void ScanLine::zork()
 #endif
 } 
 **/
+
