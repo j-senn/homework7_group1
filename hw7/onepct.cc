@@ -193,9 +193,9 @@ int OnePct::DoStatistics(int iteration, const Configuration& config,
  * wait_time_minutes_map
 **/
   multimap<int, OneVoter>::iterator iter_multimap;
-	
+
   for (iter_multimap = this->voters_done_voting_.begin();
-       iter_multimap!=this->voters_done_voting_.end(); ++iter_multimap) {
+       iter_multimap != this->voters_done_voting_.end(); ++iter_multimap) {
     OneVoter voter = iter_multimap->second;
     // Turn Seconds to minutes
     int wait_time_minutes = voter.GetTimeWaiting() / 60;

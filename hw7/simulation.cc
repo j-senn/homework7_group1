@@ -81,7 +81,7 @@ void Simulation::RunSimulation(const Configuration& config,
   string outstring = "XX";
   int pct_count_this_batch = 0;
   
-  for(auto iterPct = pcts_.begin(); iterPct!=pcts_.end(); ++iterPct) {
+  for (auto iterPct = pcts_.begin(); iterPct != pcts_.end(); ++iterPct) {
     OnePct pct = iterPct->second;
 
     int expected_voters = pct.GetExpectedVoters();
@@ -122,10 +122,10 @@ void Simulation::RunSimulation(const Configuration& config,
  * instance in pcts_.
 **/
 
-string Simulation::ToString(){
+string Simulation::ToString() {
   string s;
 
-  for (auto iterPct = pcts_.begin(); iterPct!=pcts_.end(); ++iterPct) {
+  for (auto iterPct = pcts_.begin(); iterPct != pcts_.end(); ++iterPct) {
     s.append(kTag + (iterPct->second).ToString() + "\n");
   }
 

@@ -48,7 +48,7 @@ int Configuration::GetMaxServiceSubscript() const {
  * General functions.
 **/
 
-void Configuration::ReadConfiguration (Scanner& instream) {
+void Configuration::ReadConfiguration(Scanner& instream) {
   string line;
   ScanLine scanline;
 
