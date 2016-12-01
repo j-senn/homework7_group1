@@ -1,4 +1,4 @@
-/******************************************************************************
+/*******************************************************************************
  * Header file for the random number generator.
  *
  * Author/copyright:  Duncan Buell
@@ -24,7 +24,7 @@ using namespace std;
 
 #undef NDEBUG
 
-class MyRandom {
+class MyRandom{
 public:
  MyRandom();
  MyRandom(unsigned seed);

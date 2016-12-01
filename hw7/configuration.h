@@ -1,4 +1,4 @@
-/******************************************************************************
+/*******************************************************************************
  * Header for the 'Configuration' class
  *
  * Author/copyright:  Duncan Buell
@@ -9,6 +9,18 @@
  * CELENA CHRISTINE WILLIAMS)
  * Date last modified: 1 December 2016
  *
+**/
+
+/*******************************************************************************
+ * GetMaxServiceSubscript() returns the size of the vector minus 1.
+ *
+ * ReadConfiguration(Scanner& instream) takes in an instance of scanner and
+ * manipulates it.
+ *
+ * ToString () takes all the calculations done in ReadConfiguration () and 
+ * formats into a easily readable string to be output to the user.
+ *
+ * All variables in this file are global and initialized for practical reasons.
 **/
 
 #ifndef CONFIGURATION_H
@@ -29,21 +41,22 @@ static const int kDefaultSeed = 19;
 static const int kDummyConfigInt = -111;
 static const double kDummyConfigDouble = -22.22;
 
-class Configuration
-{
+class Configuration{
 public:
-/******************************************************************************
+/*******************************************************************************
  * Constructors and destructors for the class. 
 **/
+ 
  Configuration();
  virtual ~Configuration();
 
-/******************************************************************************
+/*******************************************************************************
  * Accessors and Mutators.
 **/
-/******************************************************************************
+/*******************************************************************************
  * public variables
 **/
+ 
  int seed_ = kDefaultSeed;
  int election_day_length_hours_ = kDummyConfigInt;
  int election_day_length_seconds_ = kDummyConfigInt;
@@ -52,11 +65,11 @@ public:
  int min_expected_to_simulate_ = kDummyConfigInt;
  int wait_time_minutes_that_is_too_long_ = kDummyConfigInt;
  int number_of_iterations_ = kDummyConfigInt;
- vector<int> actual_service_times_;
+ vector <int> actual_service_times_;
  double arrival_zero_ = kDummyConfigDouble;
- vector<double> arrival_fractions_;
+ vector <double> arrival_fractions_;
 
-/******************************************************************************
+/*******************************************************************************
  * General functions.
 **/
 
@@ -68,4 +81,4 @@ private:
 
 };
 
-#endif // ONEVOTER_H
+#endif // CONFIGURATION_H

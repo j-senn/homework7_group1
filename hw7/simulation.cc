@@ -22,13 +22,13 @@ static const string kTag = "SIM: ";
 /*******************************************************************************
 * Constructor.
 **/
-Simulation::Simulation() {
+Simulation::Simulation(){
 }
 
 /*******************************************************************************
 * Destructor.
 **/
-Simulation::~Simulation() {
+Simulation::~Simulation(){
 }
 
 /*******************************************************************************
@@ -56,8 +56,8 @@ void Simulation::ReadPrecincts(Scanner& infile) {
     OnePct new_pct;
     new_pct.ReadData(infile);
     pcts_[new_pct.GetPctNumber()] = new_pct;
-  } // while (infile.HasNext()) {
-} // void Simulation::ReadPrecincts(Scanner& infile) {
+  } // while(infile.HasNext()){
+} // void Simulation::ReadPrecincts(Scanner& infile){
 
 /*******************************************************************************
  * Function 'RunSimulation'
@@ -77,35 +77,41 @@ void Simulation::ReadPrecincts(Scanner& infile) {
  *   ofstream& out_stream - A data stream corresponding to the output file.
 **/
 void Simulation::RunSimulation(const Configuration& config,
-                               MyRandom& random, ofstream& out_stream) {
+                               MyRandom& random, ofstream& out_stream){
   string outstring = "XX";
   int pct_count_this_batch = 0;
-  for (auto iterPct = pcts_.begin(); iterPct != pcts_.end(); ++iterPct) {
+  
+  for(auto iterPct = pcts_.begin(); iterPct!=pcts_.end(); ++iterPct){
     OnePct pct = iterPct->second;
 
     int expected_voters = pct.GetExpectedVoters();
     if ((expected_voters <= config.min_expected_to_simulate_) ||
         (expected_voters > config.max_expected_to_simulate_))
+    if((expected_voters<=config.min_expected_to_simulate_) ||
+       (expected_voters>config.max_expected_to_simulate_))
       continue;
 
     outstring = kTag + "RunSimulation for pct " + "\n";
-    outstring += kTag + pct.ToString() + "\n";
+    outstring.append(kTag + pct.ToString() + "\n");
     Utils::Output(outstring, out_stream, Utils::log_stream);
 
     ++pct_count_this_batch;
     pct.RunSimulationPct(config, random, out_stream);
 
     //    break; // we only run one pct right now
-  } // for(auto iterPct = pcts_.begin(); iterPct != pcts_.end(); ++iterPct)
+  } // for(auto iterPct = pcts_.begin(); iterPct!=pcts_.end(); ++iterPct)
 
-  outstring = kTag + "PRECINCT COUNT THIS BATCH "
-              + Utils::Format(pct_count_this_batch, 4) + "\n";
-  //  Utils::Output(outstring, out_stream);
+  outstring = kTag + "PRECINCT COUNT THIS BATCH ");
+  outstring.append(Utils::Format(pct_count_this_batch, 4) + "\n");
   Utils::Output(outstring, out_stream, Utils::log_stream);
-  //  out_stream << outstring << endl;
-  //  out_stream.flush();
-  //  Utils::log_stream << outstring << endl;
-  //  Utils::log_stream.flush();
+  
+/*******************************************************************************
+ * Utils::Output (outstring, out_stream);
+  * out_stream << outstring << endl;
+  * out_stream.flush();
+  * Utils::log_stream << outstring << endl;
+  * Utils::log_stream.flush();
+**/
 } // void Simulation::RunSimulation()
 
 /*******************************************************************************
@@ -116,13 +122,13 @@ void Simulation::RunSimulation(const Configuration& config,
  * This is accomplished by calling the 'ToString' method for each 'OnePct'
  * instance in pcts_.
 **/
-string Simulation::ToString() {
+
+string Simulation::ToString(){
   string s;
 
-  for (auto iterPct = pcts_.begin(); iterPct != pcts_.end(); ++iterPct) {
-    s += kTag + (iterPct->second).ToString() + "\n";
+  for(auto iterPct = pcts_.begin(); iterPct!=pcts_.end(); ++iterPct){
+    s.append(kTag + (iterPct->second).ToString() + "\n");
   }
 
   return s;
 } // string Simulation::ToString()
-

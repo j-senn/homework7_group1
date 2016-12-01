@@ -1,4 +1,4 @@
-/******************************************************************************
+/*******************************************************************************
  * Header for the 'Simulation' class.
  *
  * Author/copyright:  Duncan Buell
@@ -28,13 +28,13 @@ using namespace std;
 class Simulation
 {
 public:
-/******************************************************************************
+/*******************************************************************************
  * Constructors and destructors for the class. 
 **/
   Simulation();
   virtual ~Simulation();
 
-/******************************************************************************
+/*******************************************************************************
  * General functions.
 **/
 
@@ -63,8 +63,8 @@ public:
  *   MyRandom& random - An instance of a random number generator.
  *   ofstream& out_stream - A data stream corresponding to the output file.
 **/
-  void RunSimulation(const Configuration& config,
-                     MyRandom& random, ofstream& out_stream);
+  void RunSimulation(const Configuration& config, MyRandom& random,
+                     ofstream& out_stream);
 /*******************************************************************************
  * Function 'ToString'.
  * Commented by William Edwards, 11/30/16
@@ -75,7 +75,8 @@ public:
   // string ToStringPcts(); // This function does not exist.
 
 private:
-/******************************************************************************
+  
+/*******************************************************************************
  * Variables.
 **/
 
@@ -89,9 +90,10 @@ private:
 **/
   map<int, OnePct> pcts_;
 
-/******************************************************************************
+/*******************************************************************************
  * Private functions.
 **/
+  
 };
 
 #endif // SIMULATION_H

@@ -35,7 +35,7 @@ static const double kDummyDouble = -88.88;
 static const int kDummyInt = -999;
 static const string kDummyString = "dummystring";
 
-class OnePct {
+class OnePct{
 public:
  
 /*******************************************************************************
@@ -50,6 +50,7 @@ public:
  * Accessors and Mutators.
 **/
  // Return pct_expected_voters_
+
  int GetExpectedVoters() const;
  // Returns pct_number_
  int GetPctNumber() const;
@@ -58,6 +59,7 @@ public:
  * General functions.
 **/
  // Reads precinct data from a structured, space delimited file
+
  void ReadData(Scanner& infile);
  // Iteratively simulates the wait time outcomes for a number of stations
  // scenarios in a precinct and sends the results to out_stream
@@ -65,7 +67,7 @@ public:
                        ofstream& out_stream);
 
  string ToString();
- string ToStringVoterMap(string label, multimap<int, OneVoter> themap);
+ string ToStringVoterMap(string label, multimap<int, OneVoter>themap);
 
 private:
  int    pct_expected_voters_ = kDummyInt;
@@ -78,17 +80,18 @@ private:
  int    pct_num_voters_ = kDummyInt;
  double wait_dev_seconds_;
  double wait_mean_seconds_;
- set<int> stations_to_histo_;
- vector<int> free_stations_;
- multimap<int, OneVoter> voters_backup_;
- multimap<int, OneVoter> voters_done_voting_;
- multimap<int, OneVoter> voters_pending_;
- multimap<int, OneVoter> voters_voting_;
+ set <int> stations_to_histo_;
+ vector <int> free_stations_;
+ multimap <int, OneVoter> voters_backup_;
+ multimap <int, OneVoter> voters_done_voting_;
+ multimap <int, OneVoter> voters_pending_;
+ multimap <int, OneVoter> voters_voting_;
 
 /*******************************************************************************
  * General private functions.
 **/
  // Populates voters_backup
+
  void CreateVoters(const Configuration& config, MyRandom& random,
                    ofstream& out_stream);
  // Calculates, Returns the number of voters who waited longer than desired

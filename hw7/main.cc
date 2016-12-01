@@ -1,4 +1,4 @@
-/******************************************************************************
+/*******************************************************************************
  * Main program for simulation.
  *
  * Author/copyright:  Duncan Buell. All rights reserved.
@@ -10,11 +10,12 @@
  * Date last modified: 1 December 2016
  *
 **/
+
 #include "main.h"
 
 static const string kTag = "MAIN: ";
 
-int main(int argc, char *argv[]) {
+int main(int argc, char *argv[]){
   string config_filename;
   string pct_filename = kDummyFilename;
   string log_filename = kDummyFilename;
@@ -33,6 +34,7 @@ int main(int argc, char *argv[]) {
   MyRandom random;
 
   cout<< kTag << "Beginning execution" << endl;
+  
 
   Utils::CheckArgs(4, argc, argv,
                    "configfilename pctfilename outfilename logfilename");
@@ -45,18 +47,20 @@ int main(int argc, char *argv[]) {
   Utils::LogFileOpen(log_filename);
 
   outstring = kTag + "Beginning execution\n";
-  outstring += kTag + Utils::TimeCall("beginning");
+  outstring.append(kTag + Utils::TimeCall("beginning"));
   out_stream << outstring << endl;
   Utils::log_stream << outstring << endl;
 
   outstring = kTag + "outfile '" + out_filename + "'" + "\n";
-  outstring += kTag + "logfile '" + log_filename + "'" + "\n";
+  outstring.append(kTag + "logfile '" + log_filename + "'" + "\n");
   out_stream << outstring << endl;
   Utils::log_stream << outstring << endl;
 
-  ////////////////////////////////////////////////////////////////////
-  // config has RN seed, station count spread, election day length
-  //   and mean and dev voting time
+  /*******************************************************************************
+   * config has RN seed, station count spread, election day length
+   * and mean and dev voting time
+ **/
+  
   config_stream.OpenFile(config_filename);
   config.ReadConfiguration(config_stream);
   config_stream.Close();
@@ -67,20 +71,26 @@ int main(int argc, char *argv[]) {
 
   random = MyRandom(config.seed_);
 
-  ////////////////////////////////////////////////////////////////////
-  // now read the precinct data
+  /*******************************************************************************
+   * now read the precinct data
+ **/
+  
   pct_stream.OpenFile(pct_filename);
   simulation.ReadPrecincts(pct_stream);
   pct_stream.Close();
 
-  ////////////////////////////////////////////////////////////////////
-  // here is the real work
+  /*******************************************************************************
+   * here is the real work
+ **/
+  
   simulation.RunSimulation(config, random, out_stream);
 
-  ////////////////////////////////////////////////////////////////////
-  // close up and go home
+  /*******************************************************************************
+   * close up and go home
+  **/
+  
   outstring = kTag + "Ending execution" + "\n";
-  outstring += kTag + Utils::TimeCall("ending");
+  outstring.append(kTag + Utils::TimeCall("ending"));
   out_stream << outstring << endl;
   Utils::log_stream << outstring << endl;
 

@@ -19,7 +19,6 @@ static const string kTag = "OnePct: ";
 **/
 
 OnePct::OnePct() {
-}
 /*******************************************************************************
 * Constructor.
 **/
@@ -31,7 +30,7 @@ OnePct::OnePct(Scanner& infile) {
 /*******************************************************************************
 * Destructor.
 **/
-OnePct::~OnePct() {
+OnePct::~OnePct(){
 }
 
 /*******************************************************************************
@@ -59,7 +58,6 @@ int OnePct::GetPctNumber() const {
 * wait_mean_senconds_ and wait_dev_seconds_
 **/
 
-
 void OnePct::ComputeMeanAndDev() {
   int sum_of_wait_times_seconds = 0;
   double sum_of_adjusted_times_seconds = 0.0;
@@ -84,15 +82,15 @@ void OnePct::ComputeMeanAndDev() {
        iter_multimap != voters_done_voting_.end(); ++iter_multimap) {
 
     OneVoter voter = iter_multimap->second;
-    double this_addin = static_cast<double>(voter.GetTimeWaiting())
-                        - wait_mean_seconds_;
+    double this_addin = static_cast <double>(voter.GetTimeWaiting())
+                      - wait_mean_seconds_;
 
-    sum_of_adjusted_times_seconds += (this_addin) * (this_addin);
+    sum_of_adjusted_times_seconds.append((this_addin)*(this_addin));
   }
 
   // Set wait standard deviation
   wait_dev_seconds_ = sqrt(sum_of_adjusted_times_seconds
-                      / static_cast<double>(pct_expected_voters_));
+                    /static_cast<double>(pct_expected_voters_));
 }
 
 /*******************************************************************************
@@ -113,7 +111,7 @@ void OnePct::ComputeMeanAndDev() {
 **/
 
 void OnePct::CreateVoters(const Configuration& config, MyRandom& random,
-                          ofstream& out_stream) {
+                          ofstream& out_stream){
   int duration = 0;
   int arrival = 0;
   int sequence = 0;
@@ -163,12 +161,11 @@ void OnePct::CreateVoters(const Configuration& config, MyRandom& random,
       arrival += interarrival;
 
       int duration_sub = random.RandomUniformInt(0,
-                                                 config.GetMaxServiceSubscript()
-						);
+                                               config.GetMaxServiceSubscript());
       duration = config.actual_service_times_.at(duration_sub);
 
       OneVoter one_voter(sequence, arrival, duration);
-      voters_backup_.insert(std::pair<int, OneVoter>(arrival, one_voter));
+      voters_backup_.insert(std::pair <int, OneVoter>(arrival, one_voter));
       ++sequence;
     }
   }
@@ -188,15 +185,16 @@ int OnePct::DoStatistics(int iteration, const Configuration& config,
                           int station_count, map<int, int>& map_for_histo,
                           ofstream& out_stream) {
   string outstring = "\n";
-  map<int, int> wait_time_minutes_map;
+  map<int, int>wait_time_minutes_map;
 
 /*******************************************************************************
  * Calculate how many minutes each voter had to wait. Store to histo map and
  * wait_time_minutes_map
 **/
   multimap<int, OneVoter>::iterator iter_multimap;
-  for (iter_multimap = this->voters_done_voting_.begin();
-       iter_multimap != this->voters_done_voting_.end(); ++iter_multimap) {
+	
+  for(iter_multimap = this->voters_done_voting_.begin();
+      iter_multimap!=this->voters_done_voting_.end(); ++iter_multimap){
     OneVoter voter = iter_multimap->second;
     // Turn Seconds to minutes
     int wait_time_minutes = voter.GetTimeWaiting() / 60;
@@ -310,14 +308,13 @@ void OnePct::ReadData(Scanner& infile) {
 **/
 
 void OnePct::RunSimulationPct(const Configuration& config,
-                              MyRandom& random, ofstream& out_stream) {
+                              MyRandom& random, ofstream& out_stream){
   string outstring = "XX";
 
   // The minimum number of stations = the total time taken / time available
   int min_station_count = pct_expected_voters_
-                          * config.time_to_vote_mean_seconds_;
+                         *config.time_to_vote_mean_seconds_;
   min_station_count = min_station_count
-                      / (config.election_day_length_hours_ * 3600);
 
   // At least one station is needed
   if (min_station_count <= 0)
@@ -335,7 +332,7 @@ void OnePct::RunSimulationPct(const Configuration& config,
       break;
     done_with_this_count = true;
 
-    map<int, int> map_for_histo;
+    map <int, int> map_for_histo;
 
     outstring = kTag + this->ToString() + "\n";
     Utils::Output(outstring, out_stream, Utils::log_stream);
@@ -368,7 +365,6 @@ void OnePct::RunSimulationPct(const Configuration& config,
     // If any histograms are desired as specified in stations_to_histo_,
     // generate and send to out_stream
     if (stations_to_histo_.count(stations_count) > 0) {
-
       outstring = "\n" + kTag + "HISTO " + this->ToString() + "\n";
       outstring.append(kTag + "HISTO STATIONS ");
       outstring.append(Utils::Format(stations_count, 4) + "\n");
@@ -386,11 +382,11 @@ void OnePct::RunSimulationPct(const Configuration& config,
           voters_per_star = 1;
       }
 
-      for (int time = time_lower; time <= time_upper; ++time) {
+      for(int time = time_lower; time <= time_upper; ++time){
         int count = map_for_histo[time];
 
         double count_double = static_cast<double>(count)
-                            / static_cast<double>(config.number_of_iterations_);
+                            /static_cast<double>(config.number_of_iterations_);
 
         int count_divided_ceiling = static_cast<int>(ceil(count_double
                                                             / voters_per_star));
@@ -530,7 +526,7 @@ void OnePct::RunSimulationPct2(int stations_count) {
  *
  *
 **/
-string OnePct::ToString() {
+string OnePct::ToString(){
   string s = "";
 
   s.append(Utils::Format(pct_number_, 4) + " ");
@@ -575,4 +571,3 @@ string OnePct::ToStringVoterMap(string label, multimap<int, OneVoter> themap) {
 
   return s;
 }  // string OnePct::ToString()
-
