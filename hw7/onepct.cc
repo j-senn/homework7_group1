@@ -19,6 +19,7 @@ static const string kTag = "OnePct: ";
 **/
 
 OnePct::OnePct() {
+}
 /*******************************************************************************
 * Constructor.
 **/
@@ -85,7 +86,7 @@ void OnePct::ComputeMeanAndDev() {
     double this_addin = static_cast <double>(voter.GetTimeWaiting())
                       - wait_mean_seconds_;
 
-    sum_of_adjusted_times_seconds.append((this_addin)*(this_addin));
+    sum_of_adjusted_times_seconds += (this_addin)*(this_addin);
   }
 
   // Set wait standard deviation
@@ -314,7 +315,7 @@ void OnePct::RunSimulationPct(const Configuration& config,
   // The minimum number of stations = the total time taken / time available
   int min_station_count = pct_expected_voters_
                          *config.time_to_vote_mean_seconds_;
-  min_station_count = min_station_count
+  min_station_count = min_station_count;
 
   // At least one station is needed
   if (min_station_count <= 0)

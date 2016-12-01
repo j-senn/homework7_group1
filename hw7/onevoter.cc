@@ -40,7 +40,6 @@ OneVoter::OneVoter(int sequence, int arrival_seconds, int duration_seconds) {
   which_station_ = -1;
 }
 
-<<<<<<< HEAD
 /******************************************************************************
  *Default constructor for a voter
  **/
@@ -95,7 +94,6 @@ void OneVoter::AssignStation(int station_number, int start_time_seconds) {
   time_waiting_seconds_ = time_start_voting_seconds_ - time_arrival_seconds_;
 }
 
-<<<<<<< HEAD
 /******************************************************************************
  * GetTimeDoneVoting calculates the time that the individual voter completesk
  * voting. It does this by adding start time and duration to get completion
@@ -168,7 +166,7 @@ string OneVoter::ConvertTime(int time_in_seconds) const {
     if(minutes<10)
       s.append(":0" + Utils::Format(minutes, 1));
     else
-      s.appned(":" + Utils::Format(minutes, 2));
+      s.append(":" + Utils::Format(minutes, 2));
 
   if(seconds<0)
     s.append(":00");
@@ -195,8 +193,8 @@ string OneVoter::ToString() {
 
   s.append(Utils::Format(sequence_, 7) + ": ");
   s.append(Utils::Format(this->GetTOD(time_arrival_seconds_)) + " ");
-  s.append(Utils::Format(this->GetTOD time_start_voting_seconds_)) +" ";
-  s.append(Utils::Format(this->ConvertTime(time_vote_duration_seconds_)) +" ";
+  s.append(Utils::Format(this->GetTOD(time_start_voting_seconds_)) +" ");
+  s.append(Utils::Format(this->ConvertTime(time_vote_duration_seconds_)) +" ");
   s.append(Utils::Format(this->GetTOD(time_start_voting_seconds_
                                       + time_vote_duration_seconds_)) + " ");
   s.append(Utils::Format(this->ConvertTime(GetTimeInQ())) + ": ");

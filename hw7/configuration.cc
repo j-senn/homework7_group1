@@ -3,7 +3,6 @@
  * Implementation for the 'Configuration' class.
  *
  * Author/copyright:  Duncan Buell. All rights reserved.
- * TODO update copyright
  * Date: 6 October 2016
  *
  * Used with permission by: Group 1 (BRYCE ANDREW BLANTON,
@@ -83,7 +82,7 @@ void Configuration::ReadConfiguration(Scanner& instream){
 }
 
 string Configuration::ToString(){
-  int offset;
+  const int kOffset = 6;
   
   string s = "\n" + kTag + "RN seed:\t";
   s.append(Utils::Format(seed_, 8) + "\n");
@@ -108,8 +107,8 @@ string Configuration::ToString(){
   s.append(" : " + Utils::Format(arrival_zero_, 7, 2) + "\n");
   
   for(UINT sub = 0; sub < arrival_fractions_.size(); ++sub){
-    s.append(kTag + Utils::Format(offset+sub, 2));
-    s.append("-" + Utils::Format(offset+sub + 1, 2));
+    s.append(kTag + Utils::Format(kOffset+sub, 2));
+    s.append("-" + Utils::Format(kOffset+sub + 1, 2));
     s.append(" : " + Utils::Format(arrival_fractions_.at(sub), 7, 2) + "\n");
   }
   

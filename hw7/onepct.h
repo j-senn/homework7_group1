@@ -35,7 +35,7 @@ static const double kDummyDouble = -88.88;
 static const int kDummyInt = -999;
 static const string kDummyString = "dummystring";
 
-class OnePct{
+class OnePct {
 public:
  
 /*******************************************************************************
