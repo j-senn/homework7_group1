@@ -95,7 +95,7 @@ void OneVoter::AssignStation(int station_number, int start_time_seconds) {
 }
 
 /******************************************************************************
- * GetTimeDoneVoting calculates the time that the individual voter completesk
+ * GetTimeDoneVoting calculates the time that the individual voter completes
  * voting. It does this by adding start time and duration to get completion
  * time.
  **/
@@ -133,8 +133,8 @@ string OneVoter::GetTOD(int time_in_seconds) const {
  * ConvertTime takes in an int,  time_in_seconds. This number is then used to
  * create a formatted number output in the form of 'HH:MM:SS'. It does this by
  * dividing time_in_seconds to calculate hours, minutes, and seconds. The
- * corresponding output is then formated by the included utils package. The
- * resulting formated string is then returned.
+ * corresponding output is then formatted by the included utils package. The
+ * resulting formatted string is then returned.
  **/
 string OneVoter::ConvertTime(int time_in_seconds) const {
   int hours = 0;
