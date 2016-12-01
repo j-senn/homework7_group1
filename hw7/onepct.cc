@@ -91,7 +91,7 @@ void OnePct::ComputeMeanAndDev() {
 
   // Set wait standard deviation
   wait_dev_seconds_ = sqrt(sum_of_adjusted_times_seconds
-                    /static_cast<double>(pct_expected_voters_));
+                    / static_cast<double>(pct_expected_voters_));
 }
 
 /*******************************************************************************
@@ -125,7 +125,7 @@ void OnePct::CreateVoters(const Configuration& config, MyRandom& random,
   // Get the percent of voters arriving at open and calculate the actual number
   percent = config.arrival_zero_;
   int voters_at_zero = round((percent / 100.0) * pct_expected_voters_);
-  arrival = 0;
+  // Unnecessary code: arrival = 0;
 
   // For each voter, create a Voter instance with random time taken to vote
   // arrival time at 0, and their arrival number
@@ -145,11 +145,12 @@ void OnePct::CreateVoters(const Configuration& config, MyRandom& random,
     percent = config.arrival_fractions_.at(hour);
     int voters_this_hour = round((percent / 100.0) * pct_expected_voters_);
 
+    // Seemingly unnecessary code
     if (0 == hour%2)
       ++voters_this_hour;
 
     // Arrival second
-    int arrival = hour*3600;
+    int arrival = hour * 3600;
 
     // For each voter in the hour, starting from hour + 0 seconds, create
     // an instance of voter with arrival time at previous arrival + poisson
@@ -322,12 +323,14 @@ void OnePct::RunSimulationPct(const Configuration& config,
   if (min_station_count <= 0)
     min_station_count = 1;
 
+  // Arbitrarily set uppper bound on number of stations to minimum plus the
+  // number of hours in the election day.
   int max_station_count = min_station_count + config.election_day_length_hours_;
 
   bool done_with_this_count = false;
 
-  // For each possible station count until perfect case or max_station_count_
-  // generate n simulations
+  // Run simulation for each possible station count until perfect case or
+  // max_station_count_ generate n simulations
   for (int stations_count = min_station_count;
        stations_count <= max_station_count; ++stations_count) {
 
@@ -392,7 +395,7 @@ void OnePct::RunSimulationPct(const Configuration& config,
                             / static_cast<double>(config.number_of_iterations_);
 
         int count_divided_ceiling = static_cast<int>(ceil(count_double
-                                                            / voters_per_star));
+                                                          / voters_per_star));
         string stars = string(count_divided_ceiling, '*');
 
         outstring = kTag + "HISTO " + Utils::Format(time, 6) + ": ";
