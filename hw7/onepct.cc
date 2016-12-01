@@ -315,7 +315,8 @@ void OnePct::RunSimulationPct(const Configuration& config,
   // The minimum number of stations = the total time taken / time available
   int min_station_count = pct_expected_voters_
                          *config.time_to_vote_mean_seconds_;
-  min_station_count = min_station_count;
+  min_station_count = min_station_count
+                      / (config.election_day_length_hours_ * 3600);
 
   // At least one station is needed
   if (min_station_count <= 0)
