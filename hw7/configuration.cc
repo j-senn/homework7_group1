@@ -16,7 +16,9 @@
  * GetMaxServiceSubscript() returns the size of the vector minus 1.
  *
  * ReadConfiguration(Scanner& instream) takes in an instance of scanner and
- * manipulates it.
+ * adds the values to the appropriate variables. It also creates another scanner
+ * that takes in the hard coded file "dataallsorted.txt" and adds those values
+ * to the appropriate variables.
  *
  * ToString () takes all the calculations done in ReadConfiguration () and 
  * formats into a easily readable string to be output to the user.
