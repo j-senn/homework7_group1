@@ -116,7 +116,7 @@ public:
  static std::string Trim(std::string what);
 
 /****************************************************************
- * Additional output function.  Added by William Edwards
+ * Additional output function.  Added by William Edwards, 12/1/16
 **/
  static void Output(std::string outstring, std::ofstream& first_stream,
                     std::ofstream& second_stream);

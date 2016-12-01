@@ -9,6 +9,7 @@
  * CELENA CHRISTINE WILLIAMS)
  * Date last modified: 1 December 2016
  *
+ * This class sets up and manages the precinct simulations.
 **/
 
 #ifndef SIMULATION_H

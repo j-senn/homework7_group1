@@ -3,10 +3,6 @@
  * Implementation for the 'Simulation' class.
  * Commented by William Edwards, 11/30/16
  *
- * This class sets up and manages the precinct simulations.  Most of the heavy
- * lifting for the simulation is located in the OnePct class.  The Simulation
- * class serves mainly to coordinate the simulations of different precincts.
- *
  * Author/copyright:  Duncan Buell
  * Date: 19 July 2016
  *
@@ -14,6 +10,10 @@
  * WILLIAM R EDWARDS, JONATHAN SENN, SPENCER C SMITH,
  * CELENA CHRISTINE WILLIAMS)
  * Date last modified: 1 December 2016
+ *
+ * This class sets up and manages the precinct simulations.  Most of the heavy
+ * lifting for the simulation is located in the OnePct class.  The Simulation
+ * class serves mainly to coordinate the simulations of different precincts.
  *
 **/
 

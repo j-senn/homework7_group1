@@ -813,6 +813,8 @@ std::string Utils::Trim(std::string s) {
 } // std::string Utils::Trim(std::string s)
 
 /****************************************************************
+ * This code was added by William Edwards, 12/1/16
+ *
  * General function for outputting a string to two different 
  * output streams.
  *
